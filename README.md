@@ -69,3 +69,40 @@ y_pred = pipe.predict(X_test)
 print("F1 score:", f1_score(y_test, y_pred))
 print("\nClassification Report:\n", classification_report(y_test, y_pred))
 print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred))
+
+
+
+## ⚙️ Hyperparameter Tuning & Optimization
+
+To ensure the model performs at its absolute best, we optimized the Decision Tree's hyperparameters using `GridSearchCV`. We focused on maximizing the **F1-score**, utilizing 5-fold cross-validation (`cv=5`) to prevent overfitting and ensure robust performance across different data splits.
+
+### Tuning Configuration
+We explored the following parameter space to find the optimal tree complexity:
+* `model__max_depth`: [4, 6, 8]
+* `model__min_samples_leaf`: [20, 30, 50]
+
+### Implementation Code
+```python
+from sklearn.model_selection import GridSearchCV
+
+# Define the hyperparameter grid
+param_grid = {
+    "model__max_depth": [4, 6, 8],
+    "model__min_samples_leaf": [20, 30, 50]
+}
+
+# Initialize GridSearchCV
+grid = GridSearchCV(
+    pipe,
+    param_grid,
+    scoring="f1",
+    cv=5,
+    n_jobs=-1
+)
+
+# Train and optimize the model
+grid.fit(X_train, y_train)
+
+# Output results
+print("Best F1:", grid.best_score_)
+print("Best params:", grid.best_params_)
