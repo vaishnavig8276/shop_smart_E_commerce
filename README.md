@@ -20,7 +20,10 @@ flowchart TD
 ```
 
 * **Advanced Feature Preprocessing (`ColumnTransformer`):**
-
+* **Numerical Data (`num`):** Processed using `StandardScaler` to bring all features to a uniform scale.
+  * **Categorical Data (`cat`):** Transformed using `OneHotEncoder` to convert text-based categories into a structured format.
+* **Predictive Modeling:** The engineered features are fed into a `DecisionTreeClassifier` to make the final predictions.
+---
 ## 📊 Performance & Evaluation Metrics
 
 The model was rigorously tested on an unseen dataset of **2,466 records**, achieving a robust overall **Accuracy of 85%**. 
@@ -51,16 +54,7 @@ A deep dive into the model's exact prediction distribution across the test set:
 * **Strong Baseline:** With a 97% precision for Class 0 and an 85% overall accuracy, the model provides a highly reliable foundation for this classification task.
 
 
-## 🚀 Model Architecture & Data Pipeline
 
-This project features a fully automated, scalable machine learning pipeline built with Scikit-Learn. It seamlessly handles raw data processing and model training in a single workflow:
-
-* **Advanced Feature Preprocessing (`ColumnTransformer`):**
-  * **Numerical Data (`num`):** Processed using `StandardScaler` to bring all features to a uniform scale.
-  * **Categorical Data (`cat`):** Transformed using `OneHotEncoder` to convert text-based categories into a structured format.
-* **Predictive Modeling:** The engineered features are fed into a `DecisionTreeClassifier` to make the final predictions.
-
----
 
 ## 💻 Model Prediction & Evaluation
 
