@@ -17,6 +17,9 @@ flowchart TD
         SS --> DTC(DecisionTreeClassifier)
         OHE --> DTC
     end
+```
+
+* **Advanced Feature Preprocessing (`ColumnTransformer`):**
 
 ## 📊 Performance & Evaluation Metrics
 
