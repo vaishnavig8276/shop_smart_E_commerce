@@ -40,3 +40,29 @@ A deep dive into the model's exact prediction distribution across the test set:
 ### 💡 Key Takeaways
 * **High Recall (83%):** The model is highly effective at identifying the minority class (Class 1), missing only 64 cases out of 382. 
 * **Strong Baseline:** With a 97% precision for Class 0 and an 85% overall accuracy, the model provides a highly reliable foundation for this classification task.
+
+
+## 🚀 Model Architecture & Data Pipeline
+
+This project features a fully automated, scalable machine learning pipeline built with Scikit-Learn. It seamlessly handles raw data processing and model training in a single workflow:
+
+* **Advanced Feature Preprocessing (`ColumnTransformer`):**
+  * **Numerical Data (`num`):** Processed using `StandardScaler` to bring all features to a uniform scale.
+  * **Categorical Data (`cat`):** Transformed using `OneHotEncoder` to convert text-based categories into a structured format.
+* **Predictive Modeling:** The engineered features are fed into a `DecisionTreeClassifier` to make the final predictions.
+
+---
+
+## 💻 Model Prediction & Evaluation
+
+To evaluate the model's performance on unseen data, we generated predictions using the trained pipeline and calculated key classification metrics.
+
+### Implementation Code
+```python
+# Generate predictions on the test dataset
+y_pred = pipe.predict(X_test)
+
+# Output the evaluation metrics
+print("F1 score:", f1_score(y_test, y_pred))
+print("\nClassification Report:\n", classification_report(y_test, y_pred))
+print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred))
