@@ -71,7 +71,7 @@ print("\nClassification Report:\n", classification_report(y_test, y_pred))
 print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred))
 
 
-
+```
 ## ⚙️ Hyperparameter Tuning & Optimization
 
 To ensure the model performs at its absolute best, we optimized the Decision Tree's hyperparameters using `GridSearchCV`. We focused on maximizing the **F1-score**, utilizing 5-fold cross-validation (`cv=5`) to prevent overfitting and ensure robust performance across different data splits.
