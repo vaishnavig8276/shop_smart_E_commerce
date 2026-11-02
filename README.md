@@ -2,15 +2,21 @@
 
 ## 🚀 Model Architecture & Data Pipeline
 
-This project features a fully automated, scalable machine learning pipeline built with Scikit-Learn. It seamlessly handles raw data processing and model training in a single workflow:
+This project features a fully automated, scalable machine learning pipeline built with Scikit-Learn. It seamlessly handles raw data processing and model training in a single workflow.
 
-* **Advanced Feature Preprocessing (`ColumnTransformer`):**
-  * **Numerical Data:** Processed using `StandardScaler` to bring all features to a uniform scale, preventing any single feature from dominating the model due to large values.
-  * **Categorical Data:** Transformed using `OneHotEncoder` to convert text-based categories into a structured, machine-readable format.
-* **Predictive Modeling (`DecisionTreeClassifier`):** 
-  * The engineered features are fed into a Decision Tree algorithm, which learns complex decision rules from the dataset to make highly accurate classifications.
-
----
+### 🏗️ Pipeline Diagram
+```mermaid
+flowchart TD
+    subgraph Pipeline [Pipeline]
+        direction TB
+        subgraph Preprocess [preprocess: ColumnTransformer]
+            direction TB
+            num[num] --> SS(StandardScaler)
+            cat[cat] --> OHE(OneHotEncoder)
+        end
+        SS --> DTC(DecisionTreeClassifier)
+        OHE --> DTC
+    end
 
 ## 📊 Performance & Evaluation Metrics
 
